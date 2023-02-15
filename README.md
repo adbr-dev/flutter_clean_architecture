@@ -55,4 +55,10 @@ Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개�
     
     : 현재 시제의 동사 + 명사/대상(선택사항) + UseCase.
     
-    (e.g. FormatDateUseCase, LogOutUserUseCase, GetLatestNewsWithAuthorsUseCase, MakeLoginRequestUseCase)
+    (e.g. FormatDateUseCase, LogOutUserUseCase, GetLatestNewsWithAuthorsUseCase, MakeLoginRequestUseCase)  
+
+
+- useCase의 비지니스 로직 vs 프리젠터의 로직
+  - Q. 비개발팀의 팀원분들도 알아야 하는 로직인가? 
+  - A. 알아야 하는 로직이라면, 비지니스 로직으로 담자  
+  (비지니스 로직 = 앱 업무 요구사항을 담는 것)
