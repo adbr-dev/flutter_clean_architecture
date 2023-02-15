@@ -22,7 +22,7 @@ class SearchController with ChangeNotifier {
     _documents.clear();
     _documents.addAll(result.documents);
 
-    log('documents $_documents');
+    log('documents ${_documents.length}');
 
     notifyListeners();
   }
