@@ -6,6 +6,15 @@ Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개�
 
 </br></br>
 
+### 기능별 설명
+
+| Action | Plugin | Description |
+| :---         |     :---:      |          ---: |
+| call API   | `http` | data 레이어 안 sources 부분에서 ApiClient를 따로 만들어 관리합니다.  |
+| debounce   | `easy_debounce`     | 검색창에 onChanged로 할 경우 짧은 시간 내 많은 호출이 일어날 수 있으니, 해당 플러그인을 사용하여 1초간 검색 타이핑이 멈출 경우 함수가 호출 되도록 했습니다.
+
+</br></br>
+
 ### 특징
 - Clean architecture 3가지 레이어로 나누어 바라봅니다.  
 `Data` - `Domain` - `App(Presentation)`
@@ -61,4 +70,4 @@ Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개�
 - useCase의 비지니스 로직 vs 프리젠터의 로직
   - Q. 비개발팀의 팀원분들도 알아야 하는 로직인가? 
   - A. 알아야 하는 로직이라면, 비지니스 로직으로 담자  
-  (비지니스 로직 = 앱 업무 요구사항을 담는 것)
+  (비지니스 로직 = 앱 업무 요구사항을 담는 것)  
