@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/presentation/features/bookmark/bookmark_screen.dart';
-import 'package:flutter_clean_architecture/presentation/features/search/search_screen.dart';
-import 'package:flutter_clean_architecture/presentation/utils/util_colors.dart';
+
+import '../../../data/repositories/search_repository_impl.dart';
+import '../../utils/util_colors.dart';
+import '../bookmark/bookmark_screen.dart';
+import '../search/search_controller.dart';
+import '../search/search_screen.dart';
 
 enum HomePageTab {
   search,
@@ -17,15 +20,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late int _tabIndex;
-  final _tabScreens = const <Widget>[
-    SearchScreen(),
-    BookmarkScreen(),
-  ];
+
+  late List<Widget> _tabScreens;
 
   @override
   void initState() {
     super.initState();
+
+    final searchController = SearchController(
+      SearchRepositoryImpl(),
+    );
+
     _tabIndex = HomePageTab.search.index;
+    _tabScreens = <Widget>[
+      SearchScreen(
+        controller: searchController,
+      ),
+      const BookmarkScreen(),
+    ];
   }
 
   @override
