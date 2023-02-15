@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import '../../data/sources/api_client.dart';
 
 abstract class SearchRepository {
-  SearchRepository(ApiClient? client)
+  SearchRepository({ApiClient? client})
       : client = client ?? ApiClient(client: Client());
 
   final ApiClient client;

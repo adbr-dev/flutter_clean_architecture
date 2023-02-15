@@ -1,8 +1,9 @@
 import '../../domain/repositories/search_repository.dart';
 import '../models/search_image_model.dart';
+import '../sources/api_client.dart';
 
 class SearchRepositoryImpl extends SearchRepository {
-  SearchRepositoryImpl(super.client);
+  SearchRepositoryImpl({ApiClient? client}) : super(client: client);
 
   @override
   Future<SearchImageModel> searchImage(
