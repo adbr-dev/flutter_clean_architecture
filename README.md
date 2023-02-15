@@ -2,14 +2,15 @@
 
 clean architecture를 따라 프로젝트를 생성합니다.
 
-Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개선되길 바라며, 부족한 점이 있다면 언제든 PR 또는 코멘트로 알려주세요 🙇🏻‍♀️
+**Refactoring -> Design Pattern -> Clean Architecture 순**으로 학습하고 개선되길 바라며,  
+부족한 점이 있다면 언제든 PR 또는 코멘트로 알려주세요 🙇🏻‍♀️
 
 </br></br>
 
 ### 기능별 설명
 
 | Action | Plugin | Description |
-| :---         |     :---:      |          ---: |
+| :---         |     :---:      |  :--- |
 | call API   | `http` | data 레이어 안 sources 부분에서 ApiClient를 따로 만들어 관리합니다.  |
 | debounce   | `easy_debounce`     | 검색창에 onChanged로 할 경우 짧은 시간 내 많은 호출이 일어날 수 있으니, 해당 플러그인을 사용하여 1초간 검색 타이핑이 멈출 경우 함수가 호출 되도록 했습니다.
 | state management   |  -  | 기본 foundation에 내장 된 [ChangeNotifier](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html)를 사용합니다.
@@ -68,8 +69,9 @@ Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개�
     
     (e.g. FormatDateUseCase, LogOutUserUseCase, GetLatestNewsWithAuthorsUseCase, MakeLoginRequestUseCase)  
 
+<br>
 
-- useCase의 비지니스 로직 vs 프리젠터의 로직
+- **useCase의 비지니스 로직에 쓸지, 프리젠터의 로직에 쓸지 고민 될 때**
   - Q. 비개발팀의 팀원분들도 알아야 하는 로직인가? 
   - A. 알아야 하는 로직이라면, 비지니스 로직으로 담자  
   (비지니스 로직 = 앱 업무 요구사항을 담는 것)  
