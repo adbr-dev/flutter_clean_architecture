@@ -40,6 +40,11 @@ class SearchScreen extends StatelessWidget {
                     const Duration(seconds: 1),
                     () => controller.onSearchQuery(value),
                   ),
+                  onSaved: (value) {
+                    if (value?.isNotEmpty ?? false) {
+                      controller.onSearchQuery(value!);
+                    }
+                  },
                 ),
               ),
             ),
