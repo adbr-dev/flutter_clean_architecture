@@ -35,11 +35,15 @@ class SearchScreen extends StatelessWidget {
                   decoration: _inputDecoration,
                   cursorHeight: 22.0,
                   textInputAction: TextInputAction.search,
-                  onChanged: (value) => EasyDebounce.debounce(
-                    'search_query',
-                    const Duration(seconds: 1),
-                    () => controller.onSearchQuery(value),
-                  ),
+                  onChanged: (value) {
+                    if (value.isEmpty) return;
+
+                    EasyDebounce.debounce(
+                      'search_query',
+                      const Duration(seconds: 1),
+                      () => controller.onSearchQuery(value),
+                    );
+                  },
                   onSaved: (value) {
                     if (value?.isNotEmpty ?? false) {
                       controller.onSearchQuery(value!);
