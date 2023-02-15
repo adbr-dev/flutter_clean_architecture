@@ -13,6 +13,7 @@ Refactoring -> Design Pattern -> Clean Architecture 순으로 학습하고 개�
 | call API   | `http` | data 레이어 안 sources 부분에서 ApiClient를 따로 만들어 관리합니다.  |
 | debounce   | `easy_debounce`     | 검색창에 onChanged로 할 경우 짧은 시간 내 많은 호출이 일어날 수 있으니, 해당 플러그인을 사용하여 1초간 검색 타이핑이 멈출 경우 함수가 호출 되도록 했습니다.
 | state management   |  -  | 기본 foundation에 내장 된 [ChangeNotifier](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html)를 사용합니다.
+| cache network image   | `extended_image` | 이미지 캐싱과 더불어 이미지가 로딩 될 때와 로드 실패 상태일 때 어떻게 출력할지 설정합니다.
 
 </br></br>
 
