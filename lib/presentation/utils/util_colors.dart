@@ -15,4 +15,6 @@ class UtilColors {
     },
   );
   static const int _mainPrimaryValue = 0xFF0265e6;
+
+  static const Color background = Color(0xFFf8f8f8);
 }
