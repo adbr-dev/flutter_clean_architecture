@@ -1,6 +1,6 @@
 import '../../domain/repositories/search_repository.dart';
 import '../models/search_image_model.dart';
-import '../sources/api_client.dart';
+import '../sources/remote/api_client.dart';
 
 class SearchRepositoryImpl extends SearchRepository {
   SearchRepositoryImpl({ApiClient? client}) : super(client: client);

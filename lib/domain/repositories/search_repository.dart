@@ -1,7 +1,7 @@
-import 'package:flutter_clean_architecture/data/models/search_image_model.dart';
 import 'package:http/http.dart';
 
-import '../../data/sources/api_client.dart';
+import '../../data/models/search_image_model.dart';
+import '../../data/sources/remote/api_client.dart';
 
 abstract class SearchRepository {
   SearchRepository({ApiClient? client})

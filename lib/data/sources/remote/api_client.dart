@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 
-import '../models/search_image_model.dart';
+import '../../models/search_image_model.dart';
 import 'api_config.dart';
 import 'api_request.dart';
 
