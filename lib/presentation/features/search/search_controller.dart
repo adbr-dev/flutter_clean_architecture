@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 
 import '../../../data/models/search_image_model.dart';
 import '../../../domain/repositories/search_repository.dart';
-import '../../../domain/usecases/add_bookmark_url_use_case.dart';
 import '../../../domain/usecases/fetch_search_image_use_case.dart';
+import '../../../domain/usecases/update_bookmark_url_use_case.dart';
 import '../../../main.dart';
 
 class SearchController with ChangeNotifier {
@@ -30,7 +30,7 @@ class SearchController with ChangeNotifier {
   }
 
   void onAddBookmarkUrl(String url) {
-    final usecase = AddBookmarkUrlUseCase(localDataSource);
+    final usecase = UpdateBookmarkUrlUseCase(localDataSource);
     usecase.call(url);
 
     notifyListeners();
