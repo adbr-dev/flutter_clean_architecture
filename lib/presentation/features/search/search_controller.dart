@@ -13,10 +13,9 @@ class SearchController with ChangeNotifier {
 
   final SearchRepository _repository;
   final _documents = <ImageDocument>[];
-  String? _query;
+  String? query;
 
   List<ImageDocument> get documents => _documents.toList();
-  String? get query => _query;
 
   void onClearQuery() {
     _documents.clear();
@@ -28,7 +27,6 @@ class SearchController with ChangeNotifier {
     const page = 1;
 
     final result = await usecase.call(query: query, page: page);
-    _query = query;
     _documents.clear();
     _documents.addAll(result.documents);
 
