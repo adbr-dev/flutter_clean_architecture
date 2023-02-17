@@ -18,7 +18,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: _dismissKeyboard,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('search'),
@@ -44,7 +44,10 @@ class SearchScreen extends StatelessWidget {
                     EasyDebounce.debounce(
                       'search_query',
                       const Duration(seconds: 1),
-                      () => controller.onSearchQuery(value),
+                      () {
+                        controller.onSearchQuery(value);
+                        _dismissKeyboard();
+                      },
                     );
                   },
                   onSaved: (value) {
@@ -75,6 +78,8 @@ class SearchScreen extends StatelessWidget {
       ),
     );
   }
+
+  void _dismissKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
 
   Widget _buildListTileCard(BuildContext context, int index) {
     final doc = controller.documents[index];
