@@ -13,14 +13,17 @@ class SearchController with ChangeNotifier {
 
   final SearchRepository _repository;
   final _documents = <ImageDocument>[];
+  String? _query;
 
   List<ImageDocument> get documents => _documents.toList();
+  String? get query => _query;
 
-  void onSearchQuery(String value) async {
+  void onSearchQuery(String query) async {
     final usecase = FetchSearchImageUseCase(_repository);
     const page = 1;
 
-    final result = await usecase.call(query: value, page: page);
+    final result = await usecase.call(query: query, page: page);
+    _query = query;
     _documents.clear();
     _documents.addAll(result.documents);
 

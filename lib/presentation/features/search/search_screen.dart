@@ -35,6 +35,9 @@ class SearchScreen extends StatelessWidget {
               ),
               child: Form(
                 child: TextFormField(
+                  controller: TextEditingController(
+                    text: controller.query,
+                  ),
                   autofocus: true,
                   decoration: _inputDecoration,
                   cursorHeight: 22.0,
