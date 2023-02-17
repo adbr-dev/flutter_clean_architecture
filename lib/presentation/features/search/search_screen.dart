@@ -1,10 +1,10 @@
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';
 import '../../utils/util_colors.dart';
 import '../../utils/util_size.dart';
+import '../../utils/widgets/cache_network_image.dart';
 import 'search_controller.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -83,30 +83,10 @@ class SearchScreen extends StatelessWidget {
 
     return Card(
       child: ListTile(
-        leading: ExtendedImage.network(
-          doc.imageUrl,
-          cacheWidth: imageSize.toInt(),
-          cacheHeight: imageSize.toInt(),
-          cache: true,
-          clearMemoryCacheIfFailed: true,
-          clearMemoryCacheWhenDispose: true,
-          compressionRatio: .5,
-          loadStateChanged: (state) {
-            switch (state.extendedImageLoadState) {
-              case LoadState.loading:
-                return const Icon(Icons.photo);
-              case LoadState.completed:
-                return ExtendedRawImage(
-                  key: Key(doc.imageUrl),
-                  image: state.extendedImageInfo?.image,
-                  fit: BoxFit.cover,
-                  width: imageSize,
-                  height: imageSize,
-                );
-              case LoadState.failed:
-                return const Icon(Icons.cloud_off_rounded);
-            }
-          },
+        leading: CacheNetworkImage(
+          url: doc.imageUrl,
+          width: imageSize,
+          height: imageSize,
         ),
         title: Text(doc.displaySitename),
         trailing: IconButton(
