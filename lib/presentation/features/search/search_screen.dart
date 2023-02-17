@@ -5,6 +5,7 @@ import '../../../main.dart';
 import '../../utils/util_colors.dart';
 import '../../utils/util_size.dart';
 import '../../utils/widgets/cache_network_image.dart';
+import '../image_detail/image_detail_page.dart';
 import 'search_controller.dart';
 
 class SearchScreen extends StatelessWidget {
@@ -88,6 +89,14 @@ class SearchScreen extends StatelessWidget {
 
     return Card(
       child: ListTile(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ImageDetailPage(imageUrl: doc.imageUrl),
+            ),
+          );
+        },
         leading: CacheNetworkImage(
           url: doc.imageUrl,
           width: imageSize,
@@ -95,9 +104,7 @@ class SearchScreen extends StatelessWidget {
         ),
         title: Text(doc.displaySitename),
         trailing: IconButton(
-          onPressed: () {
-            controller.onAddBookmarkUrl(doc.imageUrl);
-          },
+          onPressed: () => controller.onAddBookmarkUrl(doc.imageUrl),
           icon: Icon(
             hasBookmark ? Icons.star : Icons.star_border,
             color: UtilColors.main,
