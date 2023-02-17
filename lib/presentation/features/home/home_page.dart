@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/repositories/search_repository_impl.dart';
 import '../../utils/util_colors.dart';
+import '../bookmark/bookmark_controller.dart';
 import '../bookmark/bookmark_screen.dart';
 import '../search/search_controller.dart';
 import '../search/search_screen.dart';
@@ -36,7 +37,9 @@ class _HomePageState extends State<HomePage> {
       SearchScreen(
         controller: searchController,
       ),
-      const BookmarkScreen(),
+      BookmarkScreen(
+        controller: BookmarkController(),
+      ),
     ];
   }
 
