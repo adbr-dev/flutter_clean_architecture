@@ -16,6 +16,7 @@ clean architecture를 따라 프로젝트를 생성합니다.
 | state management   |  -  | 기본 foundation에 내장 된 [ChangeNotifier](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html)를 사용합니다.
 | cache network image   | `extended_image` | 이미지 캐싱과 더불어 이미지가 로딩 될 때와 로드 실패 상태일 때 어떻게 출력할지 설정합니다.
 | local DB | `shared_preferences` | Wraps platform-specific persistent storage for simple data
+| DI | - | `get`과 `get_it` 대신 main.dart에서 클래스 밖 글로별 변수로 주입 시키고 사용하게 해두었습니다. (안티 패턴인지? 외부 DI 패키지는 왜 필요한지? 공부가 필요합니다.)
 
 </br></br>
 
