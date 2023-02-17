@@ -18,6 +18,11 @@ class SearchController with ChangeNotifier {
   List<ImageDocument> get documents => _documents.toList();
   String? get query => _query;
 
+  void onClearQuery() {
+    _documents.clear();
+    notifyListeners();
+  }
+
   void onSearchQuery(String query) async {
     final usecase = FetchSearchImageUseCase(_repository);
     const page = 1;
