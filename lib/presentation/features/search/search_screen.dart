@@ -93,7 +93,10 @@ class SearchScreen extends StatelessWidget {
           onPressed: () {
             controller.onAddBookmarkUrl(doc.imageUrl);
           },
-          icon: Icon(hasBookmark ? Icons.star : Icons.star_border),
+          icon: Icon(
+            hasBookmark ? Icons.star : Icons.star_border,
+            color: UtilColors.main,
+          ),
         ),
       ),
     );
