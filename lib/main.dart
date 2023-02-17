@@ -7,6 +7,8 @@ import 'presentation/utils/util_colors.dart';
 final localDataSource = LocalDataSource();
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await localDataSource.load();
 
   runApp(const MyApp());
