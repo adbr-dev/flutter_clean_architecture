@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/presentation/features/home/home_page.dart';
-import 'package:flutter_clean_architecture/presentation/utils/util_colors.dart';
 
-void main() {
+import 'data/sources/local/local_data_source.dart';
+import 'presentation/features/home/home_page.dart';
+import 'presentation/utils/util_colors.dart';
+
+final localDataSource = LocalDataSource();
+
+void main() async {
+  await localDataSource.load();
+
   runApp(const MyApp());
 }
 

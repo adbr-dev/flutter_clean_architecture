@@ -1,9 +1,11 @@
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/presentation/features/search/search_controller.dart';
-import 'package:flutter_clean_architecture/presentation/utils/util_colors.dart';
-import 'package:flutter_clean_architecture/presentation/utils/util_size.dart';
+
+import '../../../main.dart';
+import '../../utils/util_colors.dart';
+import '../../utils/util_size.dart';
+import 'search_controller.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({
@@ -77,6 +79,7 @@ class SearchScreen extends StatelessWidget {
   Widget _buildListTileCard(BuildContext context, int index) {
     final doc = controller.documents[index];
     const imageSize = 50.0;
+    final hasBookmark = localDataSource.bookmarkUrls.contains(doc.imageUrl);
 
     return Card(
       child: ListTile(
@@ -107,8 +110,10 @@ class SearchScreen extends StatelessWidget {
         ),
         title: Text(doc.displaySitename),
         trailing: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.star_border),
+          onPressed: () {
+            controller.onAddBookmarkUrl(doc.imageUrl);
+          },
+          icon: Icon(hasBookmark ? Icons.star : Icons.star_border),
         ),
       ),
     );

@@ -1,10 +1,12 @@
 import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_clean_architecture/data/models/search_image_model.dart';
-import 'package:flutter_clean_architecture/domain/usecases/fetch_search_image_use_case.dart';
 
+import '../../../data/models/search_image_model.dart';
 import '../../../domain/repositories/search_repository.dart';
+import '../../../domain/usecases/add_bookmark_url_use_case.dart';
+import '../../../domain/usecases/fetch_search_image_use_case.dart';
+import '../../../main.dart';
 
 class SearchController with ChangeNotifier {
   SearchController(this._repository);
@@ -23,6 +25,13 @@ class SearchController with ChangeNotifier {
     _documents.addAll(result.documents);
 
     log('documents ${_documents.length}');
+
+    notifyListeners();
+  }
+
+  void onAddBookmarkUrl(String url) {
+    final usecase = AddBookmarkUrlUseCase(localDataSource);
+    usecase.call(url);
 
     notifyListeners();
   }
