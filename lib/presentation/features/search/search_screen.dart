@@ -38,7 +38,6 @@ class SearchScreen extends StatelessWidget {
                   controller: TextEditingController(
                     text: controller.query,
                   ),
-                  autofocus: true,
                   decoration: _inputDecoration,
                   cursorHeight: 22.0,
                   textInputAction: TextInputAction.search,
