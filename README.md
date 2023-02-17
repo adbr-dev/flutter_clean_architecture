@@ -1,4 +1,4 @@
-# flutter_clean_architecture
+# [flutter_clean_architecture](https://github.com/adbr-dev/flutter_clean_architecture)
 
 clean architecture를 따라 프로젝트를 생성합니다.
 
